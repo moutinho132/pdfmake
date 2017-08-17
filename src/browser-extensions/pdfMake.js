@@ -61,7 +61,8 @@ Document.prototype._getPages = function (options, cb) {
 		throw '_getPages is an async method and needs a callback argument';
 	}
 	this._createDoc(options, function (ignoreBuffer, pages) {
-		cb(pages);
+            console.log("Paginas : ",pages);
+            cb(pages);                 
 	});
 };
 

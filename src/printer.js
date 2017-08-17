@@ -102,6 +102,7 @@ PdfPrinter.prototype.createPdfKitDocument = function (docDefinition, options) {
 	var maxNumberPages = docDefinition.maxPagesNumber || -1;
 	if (typeof maxNumberPages === 'number' && maxNumberPages > -1) {
 		pages = pages.slice(0, maxNumberPages);
+                console.log(pages);
 	}
 
 	// if pageSize.height is set to Infinity, calculate the actual height of the page that

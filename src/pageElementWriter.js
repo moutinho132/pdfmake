@@ -21,6 +21,7 @@ function PageElementWriter(context, tracker) {
 
 function fitOnPage(self, addFct) {
 	var position = addFct(self);
+        console.log("Posicion :",position);
 	if (!position) {
 		self.moveToNextPage();
 		position = addFct(self);
@@ -58,7 +59,7 @@ PageElementWriter.prototype.addFragment = function (fragment, useBlockXOffset, u
 };
 
 PageElementWriter.prototype.moveToNextPage = function (pageOrientation) {
-
+        console.log("Orientacion de la Pagina : ",pageOrientation);
 	var nextPage = this.writer.context.moveToNextPage(pageOrientation);
 
 	if (nextPage.newPageCreated) {
@@ -91,6 +92,7 @@ PageElementWriter.prototype.commitUnbreakableBlock = function (forcedX, forcedY)
 		this.writer.popContext();
 
 		var nbPages = unbreakableContext.pages.length;
+                console.log("Prueba de Salto de Pagina :",nbPages);
 		if (nbPages > 0) {
 			// no support for multi-page unbreakableBlocks
 			var fragment = unbreakableContext.pages[0];
@@ -102,6 +104,7 @@ PageElementWriter.prototype.commitUnbreakableBlock = function (forcedX, forcedY)
 				// on out-of-context blocs (headers, footers, background) height should be the whole DocumentContext height
 				if (forcedX !== undefined || forcedY !== undefined) {
 					fragment.height = unbreakableContext.getCurrentPage().pageSize.height - unbreakableContext.pageMargins.top - unbreakableContext.pageMargins.bottom;
+                                        console.log("Fragmento y Alto de la Pagina:",fragment.height);
 				} else {
 					fragment.height = this.writer.context.getCurrentPage().pageSize.height - this.writer.context.pageMargins.top - this.writer.context.pageMargins.bottom;
 					for (var i = 0, l = this.repeatables.length; i < l; i++) {
