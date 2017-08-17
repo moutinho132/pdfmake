@@ -54,6 +54,7 @@ PageElementWriter.prototype.addVector = function (vector, ignoreContextX, ignore
 PageElementWriter.prototype.addFragment = function (fragment, useBlockXOffset, useBlockYOffset, dontUpdateContextPosition) {
 	if (!this.writer.addFragment(fragment, useBlockXOffset, useBlockYOffset, dontUpdateContextPosition)) {
 		this.moveToNextPage();
+            
 		this.writer.addFragment(fragment, useBlockXOffset, useBlockYOffset, dontUpdateContextPosition);
 	}
 };
