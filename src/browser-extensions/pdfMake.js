@@ -65,7 +65,7 @@ Document.prototype._getPages = function (options, cb) {
 	});
 };
 
-Document.prototype._bufferToBlob = function (buffer) {
+Document.prototype._bufferToBlob = function (buffer) {bgfrbgfdbgf
 	var blob;
 	try {
 		blob = new Blob([buffer], {type: 'application/pdf'});
